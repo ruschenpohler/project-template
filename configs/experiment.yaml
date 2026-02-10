@@ -1,0 +1,29 @@
+# Experiment configuration — defines WHAT to run.
+# Validated by src/config_schema.py against configs/project_standards.yaml.
+# See AGENTS.md for rules on protected fields and allowed values.
+
+project_name: fraud_model_v1
+client_name: bank_x
+
+# SHA256 content hash of the dataset directory in data/shadow/
+dataset_version: a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2
+
+# Overwritten at runtime with SHA256(src/features.py + feature config)
+feature_pipeline_version: auto
+
+model_type: xgboost
+random_seed: 42
+
+hyperparameters:
+  max_depth: 8
+  learning_rate: 0.05
+
+evaluation:
+  metric: roc_auc
+  split_strategy: stratified_kfold
+
+# Protected fields — do not change without explicit human approval.
+# Must match the reference values in configs/project_standards.yaml.
+protected:
+  metric_definition: roc_auc
+  split_strategy: stratified_kfold

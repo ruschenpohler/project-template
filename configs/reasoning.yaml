@@ -1,0 +1,22 @@
+# Reasoning metadata — defines WHY you are running this experiment.
+# Validated by src/config_schema.py against configs/project_standards.yaml.
+# Fill this in BEFORE every experiment run.
+
+# Must be one of the allowed categories in project_standards.yaml:
+#   feature_addition, feature_transformation, feature_removal,
+#   hyperparameter_tuning, regularization, model_architecture,
+#   data_cleaning, data_expansion, threshold_tuning, ensemble,
+#   pipeline_refactor
+hypothesis_category: hyperparameter_tuning
+
+# Free text: what you changed and why
+change_description: "Increased tree depth to reduce bias"
+
+# Required for agents, optional for humans: improve, reduce_variance, explore
+expected_effect: improve
+
+# Filled in after the experiment (confirmed, neutral, negative)
+outcome: null
+
+# Computed automatically by run_experiment.py (delta vs. best prior run)
+metric_delta: null
